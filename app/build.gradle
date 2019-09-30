@@ -26,4 +26,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //----- ShowPassword
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
+    //----- Image circle
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.mcxiaoke.volley:library:1.0.19'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.github.GrenderG:Toasty:1.4.0'
+    implementation 'com.facebook.shimmer:shimmer:0.2.0'
 }
