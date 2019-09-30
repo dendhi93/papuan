@@ -14,4 +14,6 @@
     <dimen name="placeholderImage">100dp</dimen>
     <dimen name="placeholderTextHeight">8dp</dimen>
     <dimen name="padding_10">4dp</dimen>
+
+
 </resources>
