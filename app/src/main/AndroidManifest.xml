@@ -39,7 +39,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".DataBarangActivity"></activity>
+        <activity android:name=".feature.changepassword.ChangePassword" />
+        <activity android:name=".feature.Home.HomeActivity" />
+        <activity android:name=".preparation.LoginActivity" />
         <activity android:name=".preparation.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

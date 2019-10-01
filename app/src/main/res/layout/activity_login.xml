@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".preparation.LoginActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -132,39 +132,27 @@
                         android:textStyle="bold" />
                 </RelativeLayout>
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/llLogin"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/forget_password"
+                    android:layout_below="@+id/llLogin">
+                    <TextView
+                        android:id="@+id/tv_loginSignUp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="7dp"
-                        android:background="@color/transparent"
-                        android:fontFamily="@font/ubuntu_r"
-                        android:text="Forget Password ?"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorGrey500" />
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:padding="10dp"
+                        android:text="Sign up" />
 
-                    <Button
-                        android:id="@+id/sing_up"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:background="@color/transparent"
-                        android:fontFamily="@font/ubuntu_r"
-                        android:gravity="right"
-                        android:text="Sign up"
-                        android:textAllCaps="true"
-                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/tv_loginForgot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_alignParentLeft="true"
+                        android:padding="10dp"
+                        android:text="Forget Password ?" />
+                </RelativeLayout>
 
-                </LinearLayout>
             </LinearLayout>
 
         </RelativeLayout>

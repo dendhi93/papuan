@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.dracoo.papuamobile.LoginActivity;
 import com.dracoo.papuamobile.R;
 
 public class SplashActivity extends AppCompatActivity {
