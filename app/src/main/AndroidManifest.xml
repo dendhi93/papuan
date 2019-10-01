@@ -39,7 +39,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.DataBarang.DataBarangActivity"></activity>
+        <activity android:name=".feature.ForgetPass.ForgetPasswordActivity"></activity>
+        <activity android:name=".feature.DataBarang.DataBarangActivity" />
         <activity android:name=".feature.ChangePassword.ChangePassword" />
         <activity android:name=".feature.Home.HomeActivity" />
         <activity android:name=".preparation.LoginActivity" />
