@@ -1,8 +1,10 @@
-package com.dracoo.papuamobile;
+package com.dracoo.papuamobile.feature.DataBarang;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.dracoo.papuamobile.R;
 
 public class DataBarangActivity extends AppCompatActivity {
 

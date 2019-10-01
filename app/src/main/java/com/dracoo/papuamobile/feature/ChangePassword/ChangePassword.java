@@ -1,4 +1,4 @@
-package com.dracoo.papuamobile.feature.changepassword;
+package com.dracoo.papuamobile.feature.ChangePassword;
 
 import androidx.appcompat.app.AppCompatActivity;
 
