@@ -39,10 +39,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.ForgetPass.ForgetPasswordActivity"></activity>
+        <activity
+            android:name=".feature.Home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".feature.ForgetPass.ForgetPasswordActivity" />
         <activity android:name=".feature.DataBarang.DataBarangActivity" />
         <activity android:name=".feature.ChangePassword.ChangePassword" />
-        <activity android:name=".feature.Home.HomeActivity" />
         <activity android:name=".preparation.LoginActivity" />
         <activity android:name=".preparation.SplashActivity">
             <intent-filter>
