@@ -83,57 +83,52 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.i(TAG, "login Url : " + url);
                 StringRequest request = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject paramObject = new JSONObject(response);
-                                    ResultWS = paramObject.getString("Result");
-                                    Log.i("LoginResault", "Result: "+ResultWS);
-                                    if (ResultWS.equals("true")){
-                                        JSONArray jsonArray = paramObject.getJSONArray("Raw");
-                                        Log.i("LoginResault", "Raw + True: "+jsonArray);
-                                        for (int i = 0; i < jsonArray.length(); i++) {
-                                            JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                            Log.i("LoginResault", "Obj Data: " + jsonObject);
-                                            Log.i("LoginResault", "Obj UserName: " + jsonObject.getString("UserName"));
-                                            Log.i("LoginResault", "Obj Password: " + jsonObject.getString("Password"));
-                                            Log.i("LoginResault", "Obj Nama: " + jsonObject.getString("Nama"));
-                                            Log.i("LoginResault", "Obj Email: " + jsonObject.getString("Email"));
+                        response -> {
+                            try {
+                                JSONObject paramObject = new JSONObject(response);
+                                ResultWS = paramObject.getString("Result");
+                                Log.i("LoginResault", "Result: "+ResultWS);
+                                if (ResultWS.equals("true")){
+                                    JSONArray jsonArray = paramObject.getJSONArray("Raw");
+                                    Log.i("LoginResault", "Raw + True: "+jsonArray);
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                        Log.i("LoginResault", "Obj Data: " + jsonObject);
+                                        Log.i("LoginResault", "Obj UserName: " + jsonObject.getString("UserName"));
+                                        Log.i("LoginResault", "Obj Password: " + jsonObject.getString("Password"));
+                                        Log.i("LoginResault", "Obj Nama: " + jsonObject.getString("Nama"));
+                                        Log.i("LoginResault", "Obj Email: " + jsonObject.getString("Email"));
 
-                                            String nik = jsonObject.getString("UserName");
-                                            String nama = jsonObject.getString("Nama");
-                                            String email = jsonObject.getString("Email");
+                                        String nik = jsonObject.getString("UserName");
+                                        String nama = jsonObject.getString("Nama");
+                                        String email = jsonObject.getString("Email");
 
-                                            Toasty.success(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT, true).show();
-                                            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_USER_SUDAH_LOGIN, true);
-                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_USER_NAME, nama);
-                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_NIK, nik);
-                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
+                                        Toasty.success(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT, true).show();
+                                        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_USER_SUDAH_LOGIN, true);
+                                        sharedPrefManager.saveSPString(SharedPrefManager.SP_USER_NAME, nama);
+                                        sharedPrefManager.saveSPString(SharedPrefManager.SP_NIK, nik);
+                                        sharedPrefManager.saveSPString(SharedPrefManager.SP_EMAIL, email);
 
-                                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class)
-                                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                            startActivity(intent);
-                                            finish();
+                                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class)
+                                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                        finish();
 
-                                        }
-
-                                    }else {
-                                        Toasty.error(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT, true).show();
                                     }
 
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                                }else {
+                                    Toasty.error(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT, true).show();
                                 }
 
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
+                            pDialog.dismiss();
                         },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toasty.error(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT, true).show();
-                                Log.i("TAG", "onResponse: " + error.toString());
-                            }
+                        error -> {
+                            Toasty.error(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT, true).show();
+                            Log.i("TAG", "onResponse: " + error.toString());
+                            pDialog.dismiss();
                         }){
 
                     @Override
@@ -146,6 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                 };
 
                 Mysingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
+                pDialog.dismiss();
             }else{
                 Toasty.info(this, "handset tidak terhubung dengan internet", Toast.LENGTH_SHORT, true).show();
             }
