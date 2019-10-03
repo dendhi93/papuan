@@ -3,12 +3,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     tools:context=".feature.TaskFragment.TaskFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/open"
+            android:layout_marginRight="2.5dp"
+            android:background="@drawable/shape_rounded_bg_blue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/statusOpen"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="40dp"
+                android:fontFamily="@font/ubuntu_r"
+                android:textAllCaps="true"
+                android:text="Open"
+                android:textSize="20sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/countOpen"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:fontFamily="@font/ubuntu_r"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/finish"
+            android:layout_marginLeft="2.5dp"
+            android:background="@drawable/shape_rounded_bg_blue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/statusFinish"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:layout_height="40dp"
+                android:fontFamily="@font/ubuntu_r"
+                android:textAllCaps="true"
+                android:text="Finish"
+                android:textSize="20sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/countFinish"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:fontFamily="@font/ubuntu_r"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="0"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCardHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:layout_marginStart="@dimen/text_size__2"
+            android:layout_marginEnd="@dimen/text_size__2"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:context="com.google.samples.apps.sunflower.GardenActivity"
+            tools:listitem="@layout/adapter_task" />
+
+    </LinearLayout>
 
 </FrameLayout>
