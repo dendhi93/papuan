@@ -55,7 +55,7 @@
                     android:layout_marginLeft="26dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:fontFamily="@font/ubuntu_r"
                     android:layout_gravity="center"
@@ -82,7 +82,7 @@
                     android:layout_marginLeft="26dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/ubuntu_r"
                     android:layout_gravity="center"
                     android:text="@string/help_faq" />
