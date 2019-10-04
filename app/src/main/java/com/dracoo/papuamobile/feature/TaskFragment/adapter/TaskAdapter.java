@@ -19,6 +19,7 @@ import com.dracoo.papuamobile.Model.ListTaskOpenModel;
 import com.dracoo.papuamobile.R;
 import com.dracoo.papuamobile.Utils.SharedPrefDataTask;
 import com.dracoo.papuamobile.Utils.SharedPrefManager;
+import com.dracoo.papuamobile.feature.DtlTask.DetailTaskActivity;
 
 import java.util.List;
 import java.util.Random;
@@ -94,23 +95,20 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             viewHolder.mAlamat.setText(mListTaskOpenModel.getAlamat());
         }
         Log.i(TAG, "VID per Card: " + mListTaskOpenModel.getId());
-        viewHolder.myButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Animation fadein = new AlphaAnimation(0,1);
-                fadein.setDuration(50);
-                viewHolder.myButton.startAnimation(fadein);
-//                Intent in = new Intent(v.getContext(), TaskDetailActivity.class);
-//                in.putExtra(SharedPrefManager.SP_ID, mListTaskOpenModel.getId());
-//                in.putExtra(SharedPrefDataTask.VID, mListTaskOpenModel.getVid());
-//                in.putExtra(SharedPrefDataTask.NoTask, mListTaskOpenModel.getNoTask());
-                Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getId());
-                Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getVid());
-                Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getNoTask());
+        viewHolder.myButton.setOnClickListener(v -> {
+            Animation fadein = new AlphaAnimation(0,1);
+            fadein.setDuration(50);
+            viewHolder.myButton.startAnimation(fadein);
+            Intent in = new Intent(v.getContext(), DetailTaskActivity.class);
+            in.putExtra(SharedPrefManager.SP_ID, mListTaskOpenModel.getId());
+            in.putExtra(SharedPrefDataTask.VID, mListTaskOpenModel.getVid());
+            in.putExtra(SharedPrefDataTask.NoTask, mListTaskOpenModel.getNoTask());
+            Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getId());
+            Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getVid());
+            Log.i("ListOpenAdapter", "NoTaskOpen: " + mListTaskOpenModel.getNoTask());
 //               sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, mListTaskOpenModel.getId());
 //               sharedPrefManager.saveSPString(SharedPrefManager.SP_VID, mListTaskOpenModel.getVid());
-//                v.getContext().startActivity(in);
-            }
+            v.getContext().startActivity(in);
         });
 
         // call Animation function

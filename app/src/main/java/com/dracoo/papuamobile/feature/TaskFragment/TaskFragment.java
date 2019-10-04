@@ -24,6 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class TaskFragment extends Fragment {
@@ -75,6 +76,16 @@ public class TaskFragment extends Fragment {
         rvCardListTask.setHasFixedSize(true);
         mAdapter = new TaskAdapter(getActivity(), listTaskOpenModels);
         rvCardListTask.setAdapter(mAdapter);
+    }
+
+    @OnClick(R.id.open)
+    void onOpen(){
+        rvCardListTask.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.finish)
+    void onFinish(){
+        rvCardListTask.setVisibility(View.VISIBLE);
     }
 
 
