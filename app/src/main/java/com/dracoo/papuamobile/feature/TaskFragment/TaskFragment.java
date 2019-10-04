@@ -85,7 +85,7 @@ public class TaskFragment extends Fragment {
 
     @OnClick(R.id.finish)
     void onFinish(){
-        rvCardListTask.setVisibility(View.VISIBLE);
+        rvCardListTask.setVisibility(View.GONE);
     }
 
 
